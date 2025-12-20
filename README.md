@@ -7,7 +7,7 @@
 <img src="icon.png" width="120" height="120" alt="Icona Telegram Custom">
 
 ## 🇮🇹 Descrizione
-Questo componente personalizzato per **Home Assistant** permette di continuare a utilizzare la classica piattaforma `notify` per Telegram, risolvendo definitivamente l'avviso di **"Deprecazione / Servizio Notify non supportato"** (previsto per Home Assistant 2025).
+Questo componente personalizzato per **Home Assistant** permette di continuare a utilizzare la classica piattaforma `notify` per Telegram, risolvendo definitivamente l'avviso di **"Deprecazione / Servizio Notify non supportato"** (previsto per Home Assistant 2026).
 
 **Il Problema:**
 Home Assistant sta rimuovendo il supporto YAML per `platform: telegram` sotto la sezione `notify`, obbligando gli utenti a migrare alle nuove "Entità di notifica". Questo cambiamento "rompe" tutte le automazioni esistenti che utilizzano i servizi `notify.nome_utente`.
