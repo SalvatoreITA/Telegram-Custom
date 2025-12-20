@@ -52,7 +52,6 @@ telegram_bot:
     api_key: "IL_TUO_TOKEN_TELEGRAM"
     allowed_chat_ids:
       - 123456789
-      - 987654321
 
 # 2. Configurazione Notify (Modifica SOLO il platform)
 notify:
