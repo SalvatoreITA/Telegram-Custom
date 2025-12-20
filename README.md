@@ -48,14 +48,9 @@ telegram_bot:
     api_key: "IL_TUO_TOKEN_TELEGRAM"
     allowed_chat_ids:
       - 123456789
-      - 987654321
 
 # 2. Configurazione Notify (Usa telegram_custom)
 notify:
   - name: Salvo_Telegram
     platform: telegram_custom    # <--- CAMBIA SOLO QUESTO (era 'telegram')
     chat_id: 123456789
-
-  - name: Evelin_Telegram
-    platform: telegram_custom
-    chat_id: 987654321
