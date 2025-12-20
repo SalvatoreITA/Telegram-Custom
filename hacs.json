@@ -1,0 +1,6 @@
+{
+  "name": "Telegram Custom Notify",
+  "render_readme": true,
+  "filename": "notify.py",
+  "homeassistant": "2024.1.0"
+}
