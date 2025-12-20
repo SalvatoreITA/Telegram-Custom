@@ -53,7 +53,7 @@ telegram_bot:
       - 123456789
       - 987654321
 
-# 2. Configurazione Notify (Modifica SOLO la platform)
+# 2. Configurazione Notify (Modifica SOLO il platform)
 notify:
   - name: Salvo_Telegram
     platform: telegram_custom    # <--- PRIMA ERA 'telegram', ORA 'telegram_custom'
