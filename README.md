@@ -2,55 +2,59 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
-[![maintainer](https://img.shields.io/badge/maintainer-Salvatore Lentini-green.svg)]()
+[![maintainer](https://img.shields.io/badge/maintainer-Salvo-green.svg)]()
 
-<img src="icon.png" width="150" height="150" alt="Icona Telegram Custom">
+<img src="icon.png" width="120" height="120" alt="Icona Telegram Custom">
 
 ## 🇮🇹 Descrizione
-Questo componente personalizzato per **Home Assistant** permette di continuare a utilizzare la vecchia piattaforma di notifica `notify` per Telegram, aggirando l'avviso di "Deprecazione" introdotto nelle versioni recenti di HA (2024/2025).
+Questo componente personalizzato per **Home Assistant** permette di continuare a utilizzare la classica piattaforma `notify` per Telegram, risolvendo definitivamente l'avviso di **"Deprecazione / Servizio Notify non supportato"** (previsto per Home Assistant 2025).
 
-**Il problema:** Home Assistant sta rimuovendo il supporto YAML per `platform: telegram` sotto `notify`, obbligando a migrare alle nuove "Entità di notifica". Questo romperebbe tutte le vecchie automazioni che usano `service: notify.nome_utente`.
+**Il Problema:**
+Home Assistant sta rimuovendo il supporto YAML per `platform: telegram` sotto la sezione `notify`, obbligando gli utenti a migrare alle nuove "Entità di notifica". Questo cambiamento "rompe" tutte le automazioni esistenti che utilizzano i servizi `notify.nome_utente`.
 
-**La soluzione:** Questo componente crea un wrapper che:
-1. Mantiene attivi i servizi `notify.nome_utente`.
-2. Supporta **Testo, Foto, Video e Documenti** (esattamente come l'integrazione originale).
-3. Elimina l'avviso di "Riparazione/Deprecazione".
-4. Non richiede di modificare le automazioni esistenti.
+**La Soluzione:**
+Questo componente crea un "ponte" trasparente che:
+1.  ✅ **Mantiene i tuoi vecchi servizi** (es. `notify.salvo`, `notify.gruppo`).
+2.  ✅ **Elimina l'avviso di riparazione/deprecazione** dalle impostazioni.
+3.  ✅ **Supporta tutto:** Testo, Emoji, Foto, Video e Documenti.
+4.  ✅ **Zero modifiche alle automazioni:** Non devi riscrivere i tuoi script.
 
 ---
 
 ## 🚀 Installazione
 
-### Tramite HACS (Consigliato)
-1. Apri HACS nel tuo Home Assistant.
-2. Vai su **Integrazioni** > **Menu (3 puntini in alto a destra)** > **Repository personalizzati**.
-3. Incolla l'URL di questo repository GitHub.
-4. Seleziona la categoria **Integrazione**.
-5. Clicca su **Aggiungi** e poi su **Scarica**.
-6. **Riavvia Home Assistant**.
+### Metodo 1: Tramite HACS (Consigliato)
+1.  Apri **HACS** nel tuo Home Assistant.
+2.  Vai su **Integrazioni** > **Menu (3 puntini in alto a destra)** > **Repository personalizzati**.
+3.  Incolla l'URL di questo repository GitHub.
+4.  Nella categoria seleziona **Integrazione**.
+5.  Clicca su **Aggiungi** e poi su **Scarica**.
+6.  **Riavvia Home Assistant**.
 
-### Installazione Manuale
-1. Scarica la cartella `custom_components/telegram_custom` da questo repository.
-2. Copiala nella cartella `config/custom_components/` del tuo Home Assistant.
-3. Riavvia Home Assistant.
+### Metodo 2: Manuale
+1.  Scarica la cartella `custom_components/telegram_custom` da questo repository.
+2.  Copiala nella cartella `config/custom_components/` del tuo Home Assistant.
+3.  Riavvia Home Assistant.
 
 ---
 
 ## ⚙️ Configurazione
 
-Modifica il tuo file `configuration.yaml`.
-La configurazione è identica a quella vecchia, devi solo cambiare la `platform` da `telegram` a `telegram_custom`.
+La configurazione è semplicissima. Devi solo modificare il tuo file `configuration.yaml` cambiando il nome della piattaforma da `telegram` a `telegram_custom`.
+
+**Esempio configuration.yaml:**
 
 ```yaml
-# 1. Configurazione del Bot (Standard, non cambia nulla)
+# 1. Configurazione Bot (Questa NON cambia, serve per la connessione)
 telegram_bot:
   - platform: polling
     api_key: "IL_TUO_TOKEN_TELEGRAM"
     allowed_chat_ids:
       - 123456789
+      - 987654321
 
-# 2. Configurazione Notify (Usa telegram_custom)
+# 2. Configurazione Notify (Modifica SOLO la platform)
 notify:
   - name: Salvo_Telegram
-    platform: telegram_custom    # <--- CAMBIA SOLO QUESTO (era 'telegram')
+    platform: telegram_custom    # <--- PRIMA ERA 'telegram', ORA 'telegram_custom'
     chat_id: 123456789
