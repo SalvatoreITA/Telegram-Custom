@@ -46,7 +46,7 @@ La configurazione è semplicissima. Devi solo modificare il tuo file `configurat
 **Esempio configuration.yaml:**
 
 ```yaml
-# 1. Configurazione Bot (Questa NON cambia, serve per la connessione)
+# 1. Configurazione Bot (Questa Deve Essere Eliminata e Deve essere integrata tramite interfaccia grafica)
 telegram_bot:
   - platform: polling
     api_key: "IL_TUO_TOKEN_TELEGRAM"
