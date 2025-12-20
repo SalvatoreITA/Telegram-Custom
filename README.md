@@ -59,3 +59,17 @@ notify:
   - name: Salvo_Telegram
     platform: telegram_custom    # <--- PRIMA ERA 'telegram', ORA 'telegram_custom'
     chat_id: 123456789
+```
+Dopo aver modificato il file, riavvia Home Assistant per applicare le modifiche.
+
+## 💡 Esempi di Automazioni
+Una volta installato, le tue vecchie automazioni funzioneranno esattamente come prima, incluse quelle con allegati multimediali.
+
+**Messaggio di testo semplice:**
+```yaml
+service: notify.salvo_telegram
+data:
+  message: "Ciao! Il sistema è online e funzionante."
+```
+## ❤️ Crediti
+Sviluppato da Salvatore Lentini - DomHouse.it per la community italiana di Home Assistant, per preservare la semplicità della configurazione YAML classica.
