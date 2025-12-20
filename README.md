@@ -26,7 +26,8 @@ Questo componente crea un "ponte" trasparente che:
 ### Metodo 1: Tramite HACS (Consigliato)
 1.  Apri **HACS** nel tuo Home Assistant.
 2.  Vai su **Integrazioni** > **Menu (3 puntini in alto a destra)** > **Repository personalizzati**.
-3.  Incolla l'URL di questo repository GitHub.
+3.  Incolla l'URL di questo repository GitHub. 
+    https://github.com/SalvatoreITA/Telegram-Custom
 4.  Nella categoria seleziona **Integrazione**.
 5.  Clicca su **Aggiungi** e poi su **Scarica**.
 6.  **Riavvia Home Assistant**.
