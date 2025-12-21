@@ -1,5 +1,8 @@
 # Telegram Custom Notify (Legacy Wrapper)
 
+[![it](https://img.shields.io/badge/lang-it-green.svg)](https://github.com/SalvatoreITA/telegram-custom/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/telegram-custom/blob/main/README_en.md)
+
 [![it](https://img.shields.io/badge/lang-it-green.svg)](https://github.com/SalvatoreITA/Telegram-Custom/blob/main/README_it.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/Telegram-Custom/blob/main/README.md)
 
@@ -61,3 +64,17 @@ notify:
   - name: Salvo_Telegram
     platform: telegram_custom    # <--- WAS 'telegram', NOW 'telegram_custom'
     chat_id: 123456789
+```
+After modifying the file, restart Home Assistant to apply the changes.
+
+## 💡 Automation Examples
+Once installed, your old automations will work exactly as before, including those with multimedia attachments.
+
+**Simple text message:**
+```yaml
+service: notify.salvo_telegram
+data:
+  message: "Hello! The system is online and running."
+```
+## ❤️ Credits
+Developed by Salvatore Lentini - DomHouse.it for the Home Assistant community, to preserve the simplicity of classic YAML configuration.
