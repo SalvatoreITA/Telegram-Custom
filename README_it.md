@@ -72,32 +72,111 @@ Il titolo viene formattato automaticamente in grassetto (*Titolo*) e aggiunto in
 ```yaml
 service: notify.salvo_telegram
 data:
+  title: "⚠️ Server"
   message: "Ciao! Il sistema è online e funzionante."
 ```
 
-**2. Invio di una Foto (da URL o Locale):**
+**2. Formattazione Automatica (HTML vs Markdown):**
+Il componente riconosce automaticamente se stai usando HTML o Markdown.
+
+Esempio HTML (rileva i tag <>):
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Meteo"
+  message: "Oggi sarà <b>soleggiato</b> con possibilità di <i>pioggia</i> nel pomeriggio."
+```
+
+Esempio Markdown (standard):
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Stato Server"
+  message: "CPU al *90%*.\nControllare i log `error.log`."
+```
+
+**3. Invio di una Foto (da URL):**
 Quando si invia una foto, il testo del message viene usato automaticamente come didascalia (caption) dell'immagine.
 ```yaml
 service: notify.salvo_telegram
 data:
-message: "Foto Cancello"
-data:
-  photo:
-    - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
+  title: Cancello
+  message: "Foto Ingresso"
+  data:
+    photo:
+      - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
 ```
 
-**3. Invio di un Video:**
-Funziona esattamente come per le foto: il servizio cambia automaticamente in send_video.
+**4. Invio di una Foto (Locale):**
+Quando si invia una foto, il testo del message viene usato automaticamente come didascalia (caption) dell'immagine.
 ```yaml
 service: notify.salvo_telegram
 data:
-  title: "Clip Registrata"
-  message: "Ecco la registrazione dell'evento."
+  title: "🔔 Din Don! Foto"
+  message: "Qualcuno ha suonato il campanello."
   data:
-    video: "https://miosito.com/video/clip_recente.mp4"
+    photo:
+      file: "/config/www/foto/camera1.jpg"
 ```
 
-**4. Notifiche con Bottoni (Inline Keyboard)**
+**5. Invio di un Video (Locale):**
+Quando si invia un video, il testo del message viene usato automaticamente come didascalia (caption) dell'immagine.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🔔 Din Don! Video"
+  message: "Qualcuno ha suonato il campanello."
+  data:
+    video:
+      file: "/config/www/video/video1.mp4"
+```
+
+**6. Media Group Multipli:**
+Invia più foto o video insieme. Nota: Il titolo e il messaggio vengono allegati alla prima foto.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🚨 Report Completo"
+  message: "Ecco tutto quello che è successo."
+  data:
+    media_group:
+      - type: photo
+        file: "/config/www/allarme/foto/camera1.jpg"
+        caption: "Foto File Locale"
+      - type: photo
+        url: "https://domhouse.it/foto.jpg"
+        caption: "Foto URL Web"
+      - type: video
+        file: "/config/www/allarme/foto/video1.mp4"
+        caption: "Video Locale"       
+```
+
+**7. Invio Documenti e File:**
+Utile per inviare log o file PDF generati da Home Assistant.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Log Sistema"
+  message: "Ecco il file di log aggiornato."
+  data:
+    document: "/config/home-assistant.log" # Richiede che la cartella sia in allowlist      
+```
+**8. Notifica Ricca in HTML:**
+Puoi usare tag HTML come <b>, <i>, <a href> senza preoccuparti di fare l'escape dei caratteri speciali come accadeva col Markdown.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Buongiorno ☀️"
+  # Lo script rileva i tag <> e passa automaticamente a HTML
+  message: >
+    Oggi ci saranno <b>{{ states('sensor.temperature') }}°C</b>.
+    
+    La condizione è: <i>{{ states('weather.casa') }}</i>.
+    
+    <a href="https://weather.com">Clicca qui per i dettagli</a>   
+```
+
+**9. Notifiche con Bottoni (Inline Keyboard)**
 Il componente originale passa tutti i dati extra direttamente a Telegram. Questo permette di usare le tastiere inline per creare automazioni interattive.
 ```yaml
 service: notify.salvo_telegram
@@ -108,6 +187,29 @@ data:
     inline_keyboard:
       - "Disinserisci:/disarm_alarm"
       - "Attiva Perimetrale:/arm_perimeter"
+```
+
+**10. Menu Persistente per Comandi**
+Invece dei soliti bottoni sotto il messaggio (inline), questo cambia la tastiera del tuo telefono in un telecomando per la casa.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Allarme Inserito"
+  message: "Nessuno in casa. Cosa vuoi fare?"
+  data:
+    inline_keyboard:
+      - "Disinserisci:/disarm_alarm"
+      - "Attiva Perimetrale:/arm_perimeter"
+```
+
+## ⚠️ Nota Importante per i File Locali
+Affinché gli esempi 1 e 3 funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
+```yaml
+homeassistant:
+  allowlist_external_dirs:
+    - "/tmp"
+    - "/config"
+    - "/media"
 ```
 
 ## ❤️ Crediti
