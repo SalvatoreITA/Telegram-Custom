@@ -67,11 +67,48 @@ Dopo aver modificato il file, riavvia Home Assistant per applicare le modifiche.
 ## 💡 Esempi di Automazioni
 Una volta installato, le tue vecchie automazioni funzioneranno esattamente come prima, incluse quelle con allegati multimediali.
 
-**Messaggio di testo semplice:**
+**1. Messaggio di testo semplice:**
+Il titolo viene formattato automaticamente in grassetto (*Titolo*) e aggiunto in testa al messaggio.
 ```yaml
 service: notify.salvo_telegram
 data:
   message: "Ciao! Il sistema è online e funzionante."
 ```
+
+**2. Invio di una Foto (da URL o Locale):**
+Quando si invia una foto, il testo del message viene usato automaticamente come didascalia (caption) dell'immagine.
+```yaml
+service: notify.salvo_telegram
+data:
+message: "Foto Cancello"
+data:
+  photo:
+    - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
+```
+
+**3. Invio di un Video:**
+Funziona esattamente come per le foto: il servizio cambia automaticamente in send_video.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Clip Registrata"
+  message: "Ecco la registrazione dell'evento."
+  data:
+    video: "https://miosito.com/video/clip_recente.mp4"
+```
+
+**4. Notifiche con Bottoni (Inline Keyboard)**
+Il componente originale passa tutti i dati extra direttamente a Telegram. Questo permette di usare le tastiere inline per creare automazioni interattive.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Allarme Inserito"
+  message: "Nessuno in casa. Cosa vuoi fare?"
+  data:
+    inline_keyboard:
+      - "Disinserisci:/disarm_alarm"
+      - "Attiva Perimetrale:/arm_perimeter"
+```
+
 ## ❤️ Crediti
-Sviluppato da Salvatore Lentini - DomHouse.it per la community italiana di Home Assistant, per preservare la semplicità della configurazione YAML classica.
+Sviluppato da [Salvatore Lentini - DomHouse.it](https://www.domhouse.it)
