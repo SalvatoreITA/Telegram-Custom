@@ -205,11 +205,10 @@ data:
 ```
 
 ## ⚠️ Nota Importante per i File Locali
-Affinché gli esempi 1 e 3 funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
+Affinché gli esempi funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
 ```yaml
 homeassistant:
   allowlist_external_dirs:
-    - "/tmp"
     - "/config"
     - "/media"
 ```
