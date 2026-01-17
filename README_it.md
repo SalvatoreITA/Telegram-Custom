@@ -192,14 +192,17 @@ data:
 **10. Menu Persistente per Comandi**
 Invece dei soliti bottoni sotto il messaggio (inline), questo cambia la tastiera del tuo telefono in un telecomando per la casa.
 ```yaml
-service: notify.salvo_telegram
-data:
-  title: "Allarme Inserito"
-  message: "Nessuno in casa. Cosa vuoi fare?"
+  service: notify.salvo_telegram
   data:
-    inline_keyboard:
-      - "Disinserisci:/disarm_alarm"
-      - "Attiva Perimetrale:/arm_perimeter"
+    message: "🔧 Modalità Manutenzione Attiva. Seleziona comando:"
+    data:
+      reply_markup:
+        keyboard:
+          # Metti ogni RIGA tra virgolette, separando i tasti con una virgola
+          - "Riavvia HA, Backup"
+          - "Spegni Tutto, Esci"
+        resize_keyboard: true
+        one_time_keyboard: true
 ```
 
 ## ⚠️ Nota Importante per i File Locali
