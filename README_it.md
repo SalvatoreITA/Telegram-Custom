@@ -198,7 +198,6 @@ data:
   data:
     reply_markup:
       keyboard:
-        # Metti ogni RIGA tra virgolette, separando i tasti con una virgola
         - "Riavvia HA, Backup"
         - "Spegni Tutto, Esci"
       resize_keyboard: true
