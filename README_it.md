@@ -4,7 +4,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/telegram-custom/blob/main/README.md)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
+[![version](https://img.shields.io/badge/version-1.0.1-blue.svg)]()
 [![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
 
 <img src="icon.png" width="120" height="120" alt="Icona Telegram Custom">
@@ -192,17 +192,17 @@ data:
 **10. Menu Persistente per Comandi**
 Invece dei soliti bottoni sotto il messaggio (inline), questo cambia la tastiera del tuo telefono in un telecomando per la casa.
 ```yaml
-  service: notify.salvo_telegram
+service: notify.salvo_telegram
+data:
+  message: "🔧 Modalità Manutenzione Attiva. Seleziona comando:"
   data:
-    message: "🔧 Modalità Manutenzione Attiva. Seleziona comando:"
-    data:
-      reply_markup:
-        keyboard:
-          # Metti ogni RIGA tra virgolette, separando i tasti con una virgola
-          - "Riavvia HA, Backup"
-          - "Spegni Tutto, Esci"
-        resize_keyboard: true
-        one_time_keyboard: true
+    reply_markup:
+      keyboard:
+        # Metti ogni RIGA tra virgolette, separando i tasti con una virgola
+        - "Riavvia HA, Backup"
+        - "Spegni Tutto, Esci"
+      resize_keyboard: true
+      one_time_keyboard: true
 ```
 
 ## ⚠️ Nota Importante per i File Locali
