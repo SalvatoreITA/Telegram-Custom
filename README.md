@@ -65,13 +65,50 @@ notify:
 After modifying the file, restart Home Assistant to apply the changes.
 
 ## 💡 Automation Examples
-Once installed, your old automations will work exactly as before, including those with multimedia attachments.
+Once installed, your old automations will work just as they did before, including those with media attachments.
 
-**Simple text message:**
+**1. Plain text message:**
+The title is automatically formatted in bold (*Title*) and added to the top of the message.
 ```yaml
 service: notify.salvo_telegram
 data:
-  message: "Hello! The system is online and running."
+  message: "Hello! The system is online and working."
 ```
+
+**2. Sending a Photo (from URL or Local):**
+When you send a photo, the text from the message is automatically used as the image's caption.
+```yaml
+service: notify.salvo_telegram
+data:
+message: "Photo Gate"
+data:
+  photo:
+    - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
+```
+
+**3. Sending a Video:**
+It works exactly like with photos: the service automatically switches to send_video.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Recorded Clip"
+  message: "Here is the recording of the event."
+  data:
+    video: "https://miosito.com/video/clip_recente.mp4"
+```
+
+**4. Notifications with Buttons (Inline Keyboard)**
+The original component passes all the extra data directly to Telegram. This allows you to use inline keyboards to create interactive automations.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "Alarm Armed"
+  message: "No one home. What do you want to do?"
+  data:
+    inline_keyboard:
+      - "Disable:/disarm_alarm"
+      - "Activate Perimeter:/arm_perimeter"
+```
+
 ## ❤️ Credits
-Developed by Salvatore Lentini - DomHouse.it for the Home Assistant community, to preserve the simplicity of classic YAML configuration.
+Developed by [Salvatore Lentini - DomHouse.it](https://www.domhouse.it)
