@@ -162,7 +162,7 @@ data:
     document: "/config/home-assistant.log" # Richiede che la cartella sia in allowlist      
 ```
 **8. Notifica Ricca in HTML:**
-Puoi usare tag HTML come <b>, <i>, <a href> senza preoccuparti di fare l'escape dei caratteri speciali come accadeva col Markdown.
+Puoi usare tag HTML senza preoccuparti di fare l'escape dei caratteri speciali come accadeva col Markdown.
 ```yaml
 service: notify.salvo_telegram
 data:
