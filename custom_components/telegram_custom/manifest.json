@@ -1,13 +1,14 @@
 {
   "domain": "telegram_custom",
   "name": "Telegram Custom Notify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "documentation": "https://github.com/SalvatoreITA/Telegram-Custom",
   "dependencies": [],
   "codeowners": [],
   "requirements": [],
   "iot_class": "local_polling"
 }
+
 
 
 
