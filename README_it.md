@@ -217,7 +217,7 @@ data:
       caption: "Sirena Interna"
 ```
 **12. Inviare una Canzone o Podcast da URL**
-Se hai dei file audio (es. una sirena, un avviso vocale pre-registrato) nella cartella /config/www/.
+Se l'audio è online.
 ```yaml
 service: notify.salvo_telegram
 data:
