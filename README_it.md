@@ -4,7 +4,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/telegram-custom/blob/main/README.md)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![version](https://img.shields.io/badge/version-1.0.1-blue.svg)]()
+[![version](https://img.shields.io/badge/version-1.0.2-blue.svg)]()
 [![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
 
 <img src="icon.png" width="120" height="120" alt="Icona Telegram Custom">
@@ -104,7 +104,7 @@ data:
   message: "Foto Ingresso"
   data:
     photo:
-      - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
+      - url: "http://192.168.1.246:8123{{state_attr('camera.cancellino','entity_picture')}}"
 ```
 
 **4. Invio di una Foto (Locale):**
@@ -116,7 +116,7 @@ data:
   message: "Qualcuno ha suonato il campanello."
   data:
     photo:
-      file: "/config/www/foto/camera1.jpg"
+      file: "/config/www/allarme/foto/camera1.jpg"
 ```
 
 **5. Invio di un Video (Locale):**
@@ -128,7 +128,7 @@ data:
   message: "Qualcuno ha suonato il campanello."
   data:
     video:
-      file: "/config/www/video/video1.mp4"
+      file: "/config/www/allarme/foto/video1.mp4"
 ```
 
 **6. Media Group Multipli:**
