@@ -204,6 +204,31 @@ data:
       one_time_keyboard: true
 ```
 
+**11. Inviare un file MP3 salvato (Suoneria o Allarme)**
+Se hai dei file audio (es. una sirena, un avviso vocale pre-registrato) nella cartella /config/www/.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🔊 Avviso"
+  message: "Allarme attivato!"
+  data:
+    audio:
+      file: "/config/www/notifichehome/fischio.mp3"
+      caption: "Sirena Interna"
+```
+**12. Inviare una Canzone o Podcast da URL**
+Se hai dei file audio (es. una sirena, un avviso vocale pre-registrato) nella cartella /config/www/.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🎵 Canzone"
+  message: "Brano"
+  data:
+    audio:
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      caption: "Musica Demo"
+```
+
 ## ⚠️ Nota Importante per i File Locali
 Affinché gli esempi funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
 ```yaml
