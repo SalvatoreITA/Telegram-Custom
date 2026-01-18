@@ -4,7 +4,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/telegram-custom/blob/main/README.md)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![version](https://img.shields.io/badge/version-1.0.1-blue.svg)]()
+[![version](https://img.shields.io/badge/version-1.0.2-blue.svg)]()
 [![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
 
 <img src="icon.png" width="120" height="120" alt="Telegram Custom Icon">
@@ -104,7 +104,7 @@ data:
   message: "Foto Ingresso"
   data:
     photo:
-      - url: "http://192.168.1.246:8123{{state_attr('camera.ingresso_condominiale','entity_picture')}}"
+      - url: "http://192.168.1.246:8123{{state_attr('camera.cancellino'','entity_picture')}}"
 ```
 
 **4. Sending a Photo (Local):**
@@ -116,7 +116,7 @@ data:
   message: "Someone rang the doorbell."
   data:
     photo:
-      file: "/config/www/foto/camera1.jpg"
+      file: "/config/www/allarme/foto/camera1.jpg"
 ```
 
 **5. Sending a Video (Local):**
@@ -128,7 +128,7 @@ data:
   message: "Someone rang the doorbell."
   data:
     video:
-      file: "/config/www/video/video1.mp4"
+      file: "/config/www/allarme/foto/video1.mp4"
 ```
 
 **6. Multiple Media Groups:**
@@ -203,6 +203,56 @@ data:
         - "Shut Down All, Exit"
       resize_keyboard: true
       one_time_keyboard: true
+```
+
+**11. Send a saved MP3 file (Ringtone or Alarm)**
+If you have any audio files (e.g. a siren, a pre-recorded voice alert) in the /config/www/ folder.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🔊 Notify"
+  message: "Alarm activated!"
+  data:
+    audio:
+      file: "/config/www/notifichehome/fischio.mp3"
+      caption: "Internal Siren"
+```
+
+**12. Submit a Song or Podcast from a URL**
+If the audio is online.
+```yaml
+service: notify.salvo_telegram
+data:
+  title: "🎵 Song"
+  message: "Audio track"
+  data:
+    audio:
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      caption: "Music Demo"
+```
+
+**13. Fixed Position (e.g. Home, Work)**
+Useful for sending specific coordinates.
+```yaml
+service: notify.salvo_telegram
+data:
+  message: "Here's where I parked! 🚗"
+  data:
+    location:
+      latitude: 41.9028
+      longitude: 12.4964
+```
+
+**14. Real-Time Location (Car/Person)**
+Send the exact location of a device_tracker or person.
+```yaml
+service: notify.salvo_telegram
+data:
+  message: Real Time Car Position 🚗
+  data:
+    location:
+      latitude: "{{ state_attr('device_tracker.595_traccar', 'latitude') }}"
+      longitude: "{{ state_attr('device_tracker.595_traccar', 'longitude') }}"
 ```
 
 ## ⚠️ Important Note for Local Files
