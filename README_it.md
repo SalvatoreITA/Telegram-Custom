@@ -216,6 +216,7 @@ data:
       file: "/config/www/notifichehome/fischio.mp3"
       caption: "Sirena Interna"
 ```
+
 **12. Inviare una Canzone o Podcast da URL**
 Se l'audio è online.
 ```yaml
@@ -228,6 +229,30 @@ data:
       url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
       caption: "Musica Demo"
 ```
+
+**13. Posizione Fissa (es. Casa, Lavoro)**
+Utile per inviare coordinate specifiche.
+```yaml
+service: notify.salvo_telegram
+data:
+  message: "Ecco dove ho parcheggiato! 🚗"
+  data:
+    location:
+      latitude: 41.9028
+      longitude: 12.4964
+```     
+
+**14. Posizione in Tempo Reale (Auto/Persona)**
+Invia la posizione esatta di un device_tracker o person.
+```yaml
+service: notify.salvo_telegram
+data:
+  message: Posizione Auto Real Time
+  data:
+    location:
+      latitude: "{{ state_attr('device_tracker.595_traccar', 'latitude') }}"
+      longitude: "{{ state_attr('device_tracker.595_traccar', 'longitude') }}"
+```   
 
 ## ⚠️ Nota Importante per i File Locali
 Affinché gli esempi funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
