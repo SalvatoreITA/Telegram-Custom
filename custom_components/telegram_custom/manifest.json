@@ -1,16 +1,14 @@
 {
   "domain": "telegram_custom",
   "name": "Telegram Custom Notify",
-  "version": "1.0.2",
-  "documentation": "https://github.com/SalvatoreITA/Telegram-Custom",
-  "issue_tracker": "https://github.com/SalvatoreITA/Telegram-Custom/issues",
-  "dependencies": [],
   "codeowners": [],
+  "dependencies": [],
+  "documentation": "https://github.com/SalvatoreITA/Telegram-Custom",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/SalvatoreITA/Telegram-Custom/issues",
   "requirements": [],
-  "iot_class": "local_polling"
+  "version": "1.0.3"
 }
-
-
 
 
 
