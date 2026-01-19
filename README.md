@@ -257,7 +257,7 @@ data:
       longitude: "{{ state_attr('device_tracker.595_traccar', 'longitude') }}"
 ```
 
-## ⚠️ Important Note for Local Files
+## 📣 Important Note for Local Files
 For examples 1 and 3 to work, you must ensure that Home Assistant has permission to read the folders where you save files. In your general configuration.yaml, you must have a section similar to this:
 ```yaml
 homeassistant:
@@ -268,7 +268,6 @@ homeassistant:
 ```
 
 ## ⚠️ Disclaimer
-
 This project is an independent and unofficial integration. It is not affiliated, associated, authorized, endorsed by, or in any way officially connected with **Telegram** or any of its subsidiaries or its affiliates.
 
 The official Telegram website can be found at [https://telegram.org](https://telegram.org).
