@@ -7,7 +7,9 @@
 [![version](https://img.shields.io/badge/version-1.0.2-blue.svg)]()
 [![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
 
-<img src="https://raw.githubusercontent.com/SalvatoreITA/Telegram-Custom/main/icon.png" width="120" height="120" alt="Telegram Custom Icon">
+<div align="center">
+  <img src="icon.png" alt="Card Preview">
+</div>
 
 ## 🇺🇸 Description
 This custom component for **Home Assistant** allows you to continue using the classic `notify` platform for Telegram, permanently solving the **"Deprecation / Notify service not supported"** warning (scheduled for Home Assistant 05.2026).
