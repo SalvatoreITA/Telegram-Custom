@@ -269,7 +269,6 @@ homeassistant:
 
 ## ⚠️ Disclaimer
 This project is an independent and unofficial integration. It is not affiliated, associated, authorized, endorsed by, or in any way officially connected with **Telegram** or any of its subsidiaries or its affiliates.
-
 The official Telegram website can be found at [https://telegram.org](https://telegram.org).
 
 ## ❤️ Credits
