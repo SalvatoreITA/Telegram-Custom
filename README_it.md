@@ -256,7 +256,7 @@ data:
       longitude: "{{ state_attr('device_tracker.595_traccar', 'longitude') }}"
 ```   
 
-## ⚠️ Nota Importante per i File Locali
+## 📣 Nota Importante per i File Locali
 Affinché gli esempi funzionino, devi assicurarti che Home Assistant abbia il permesso di leggere le cartelle dove salvi i file. Nel tuo configuration.yaml generale, devi avere una sezione simile a questa:
 ```yaml
 homeassistant:
@@ -264,6 +264,11 @@ homeassistant:
     - "/config"
     - "/media"
 ```
+
+## ⚠️ Disclaimer (Esclusione di Responsabilità)
+Questo progetto è un'integrazione indipendente e non ufficiale. Non è affiliato, associato, autorizzato, sponsorizzato o in alcun modo ufficialmente connesso con **Telegram** o una qualsiasi delle sue sussidiarie o affiliate.
+
+Il sito ufficiale di Telegram è reperibile all'indirizzo [https://telegram.org](https://telegram.org).
 
 ## ❤️ Crediti
 Sviluppato da [Salvatore Lentini - DomHouse.it](https://www.domhouse.it)
