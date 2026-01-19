@@ -8,7 +8,7 @@
 [![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
 
 <div align="center">
-  <img src="icon.png" alt="Card Preview">
+  <img src="https://github.com/SalvatoreITA/Telegram-Custom/blob/main/icon.png?raw=true" alt="Logo" width="150">
 </div>
 
 ## 🇺🇸 Description
