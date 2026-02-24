@@ -102,11 +102,11 @@ When sending a photo, the text in the message is automatically used as the image
 ```yaml
 service: notify.salvo_telegram
 data:
-  title: Cancello
-  message: "Foto Ingresso"
+  title: Gate
+  message: "Photo"
   data:
     photo:
-      - url: "http://192.168.1.246:8123{{state_attr('camera.cancellino'','entity_picture')}}"
+      - url: "http://192.168.1.246:8123{{state_attr('camera.cancelino','entity_picture')}}"
 ```
 
 **4. Sending a Photo (Local):**
