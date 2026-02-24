@@ -106,7 +106,7 @@ data:
   message: "Foto Ingresso"
   data:
     photo:
-      - url: "http://192.168.1.246:8123{{state_attr('camera.cancellino','entity_picture')}}"
+      - url: "http://192.168.1.246:8123{{state_attr('camera.cancelino','entity_picture')}}"
 ```
 
 **4. Invio di una Foto (Locale):**
