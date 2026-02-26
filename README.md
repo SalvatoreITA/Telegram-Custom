@@ -272,5 +272,10 @@ This project is an independent and unofficial integration. It is not affiliated,
 
 The official Telegram website can be found at [https://telegram.org](https://telegram.org).
 
+## ☕ Support the Project
+Every little bit of support makes a huge difference: it keeps the enthusiasm alive and motivates me to create and share new solutions for the community. Thank you from the bottom of my heart! ❤️🚀
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/salvatore_dh)
+
 ## ❤️ Credits
 Developed by [Salvatore Lentini - DomHouse.it](https://www.domhouse.it)
